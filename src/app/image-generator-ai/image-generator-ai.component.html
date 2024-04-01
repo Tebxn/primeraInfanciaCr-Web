@@ -1,0 +1,31 @@
+<div class="container text-center principal">
+    <div class="row align-items-center">
+        @if(imageUrl){
+            <div class="col-4"></div>
+            <div class="col-4">
+                <img [src]="imageUrl" alt="Imagen generada">
+            </div>
+            <div class="col-4"></div>
+        }@else {
+            <div class="col-4"></div>
+            <div class="col-4">
+                <img [src]="noImageUrl" alt="Imagen generada">
+            </div>
+            <div class="col-4"></div>
+        }
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <input class="form-control" [(ngModel)]="prompt" placeholder="Ingresa tu prompt aquí">
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <button class="btn btn-primary" (click)="generateImage()">Generar imagen</button>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>

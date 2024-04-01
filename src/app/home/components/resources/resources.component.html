@@ -1,0 +1,12 @@
+<div class="card-container">
+    @for(item of resourceList; track item.idResource) {
+      <div class="card main-product-container">
+        <img [src]="item.imageUrl" class="card-img-top" alt="...">
+        <div class="card-body prodcut">
+          <h5 class="card-title">{{item.name}}</h5>
+          <a [href]="item.url" class="btn btn-primary">Ver recurso</a>
+        </div>
+      </div>
+    }
+  </div>
+  
