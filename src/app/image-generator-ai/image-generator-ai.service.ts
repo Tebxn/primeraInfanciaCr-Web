@@ -10,7 +10,7 @@ import { Dalleresponse } from '../interfaces/dalleresponse';
 export class ImageGeneratorAIService {
 
 
-  private url = environment.openAiApiUrl;
+  private url = environment.openAiApiUrl_DallE;
   private OPENAI_API_KEY = environment.openAiKey;
 
   constructor(private http: HttpClient) { }

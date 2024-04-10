@@ -1,4 +1,4 @@
 export const environment = {
-    dallEKey:  `SECRET_KEY`,
-    dalleApiUrl: `https://api.openai.com/v1/images/generations/`
+    openAiKey:  `api-secret`,
+    openAiApiUrl_DallE: `https://api.openai.com/v1/images/generations`
 };
