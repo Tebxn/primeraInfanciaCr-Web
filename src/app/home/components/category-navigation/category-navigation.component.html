@@ -1,7 +1,9 @@
 <div class="navigation-container">
     <ul>
-        @for (item of resourceTypes; track item.id) {
-            <li><a href="#">{{ item.name }}</a></li>
-        }
+        @for (item of resourceTypes; track item) {
+            <li>
+                <a href="#" (click)="selectOption(item.name)">{{ item.name }}</a>
+            </li>
+          }
     </ul>
 </div>

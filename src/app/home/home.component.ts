@@ -8,10 +8,16 @@ import { ImageGeneratorAIComponent } from '../image-generator-ai/image-generator
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, CarouselComponent, FooterComponent, CategoryNavigationComponent, ResourcesComponent, ImageGeneratorAIComponent],
+  imports: [HeaderComponent, CarouselComponent, FooterComponent, CategoryNavigationComponent, ResourcesComponent, ImageGeneratorAIComponent,
+    
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  selectedOption: string = 'Inicio'; // Opción por defecto
 
+  selectOption(option: string) {
+    this.selectedOption = option;
+  }
 }

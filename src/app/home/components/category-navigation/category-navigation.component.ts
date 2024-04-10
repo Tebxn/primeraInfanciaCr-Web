@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ResourceType } from '../../types/resourceType.type';
 import { ResourceTypeService } from '../../services/resource-type.service';
 
@@ -16,4 +16,9 @@ export class CategoryNavigationComponent {
     this.resourceTypes = this.resourceTypeService.getAllResourceTypes();
   }
   
+  @Output() optionSelected = new EventEmitter<string>();
+
+selectOption(option: string) {
+  this.optionSelected.emit(option);
+}
 }

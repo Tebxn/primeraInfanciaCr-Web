@@ -1,10 +1,24 @@
-<app-header></app-header>
-<app-category-navigation></app-category-navigation>
-
-<app-carousel></app-carousel>
-
-<app-resources></app-resources>
-<br><hr><br>
-<app-image-generator-ai></app-image-generator-ai>
-<br>
-<app-footer></app-footer>
+<div class="row">
+    <app-header></app-header>
+</div>
+<div class="row">
+    <app-category-navigation (optionSelected)="selectOption($event)"></app-category-navigation>
+</div>
+@if(selectedOption === 'Inicio'){
+    <div class="row">
+        <app-carousel></app-carousel>
+    </div>
+}
+@if(selectedOption === 'Recursos'){
+    <div class="row">
+        <app-resources></app-resources>
+    </div>
+}
+@if(selectedOption === 'Generador IA'){
+    <div class="row">
+        <app-image-generator-ai></app-image-generator-ai>
+    </div>
+}
+<div class="row">
+    <app-footer></app-footer>
+</div>
