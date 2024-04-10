@@ -2,8 +2,8 @@
     <ul>
         @for (item of resourceTypes; track item) {
             <li>
-                <a href="#" (click)="selectOption(item.name)">{{ item.name }}</a>
+                <a href="#" (click)="selectOption(item.name); $event.preventDefault()">{{ item.name }}</a>
             </li>
-          }
+        }
     </ul>
 </div>
