@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ResourceTypeService } from './resource-type.service';
+import { ResourceTypeService } from './category-type.service';
 
 describe('ResourceTypeService', () => {
   let service: ResourceTypeService;

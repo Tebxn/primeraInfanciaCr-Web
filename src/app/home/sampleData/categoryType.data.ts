@@ -1,4 +1,4 @@
-import { ResourceType } from "../types/resourceType.type";
+import { ResourceType } from "../types/categoryType.type";
 
 export const resourceTypes: ResourceType[] = [
     {id: 1,
