@@ -1,12 +1,28 @@
-<div class="card-container">
-    @for(item of resourceList; track item.idResource) {
-      <div class="card main-product-container">
-        <img [src]="item.imageUrl" class="card-img-top" alt="...">
-        <div class="card-body prodcut">
-          <h5 class="card-title">{{item.name}}</h5>
-          <a [href]="item.url" class="btn btn-primary">Ver recurso</a>
-        </div>
-      </div>
-    }
+<div class="row">
+  <div class="col-4">
+    <br>
+    <ul class="list-group">
+      <li class="list-group-item active" aria-current="true">Partes del cuerpo</li>
+      <li class="list-group-item">Colores</li>
+      <li class="list-group-item">Derecha e izquierda</li>
+      <li class="list-group-item">Sentimientos y emociones</li>
+      <li class="list-group-item">Mitos y leyendas costarricenses</li>
+    </ul>
   </div>
+  <div class="col-8">
+    <div class="card-container">
+      @for(item of resourceList; track item.idResource) {
+        <div class="card main-product-container">
+          <img [src]="item.imageUrl" class="card-img-top" alt="...">
+          <div class="card-body prodcut">
+            <h5 class="card-title">{{item.name}}</h5>
+            <a [href]="item.url" class="btn btn-primary">Ver recurso</a>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>
+
+
   
