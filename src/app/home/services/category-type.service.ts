@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ResourceType } from '../types/categoryType.type';
-import { resourceTypes } from '../sampleData/categoryType.data';
+import { CategoryType } from '../types/categoryType.type';
+import { categoryTypes } from '../sampleData/categoryType.data';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class ResourceTypeService {
 
   constructor() { }
 
-  getAllCategoryTypes():ResourceType[]{
-    return resourceTypes;
+  getAllCategoryTypes():CategoryType[]{
+    return categoryTypes;
   }
 }

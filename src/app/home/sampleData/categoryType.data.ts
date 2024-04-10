@@ -1,6 +1,6 @@
-import { ResourceType } from "../types/categoryType.type";
+import { CategoryType } from "../types/categoryType.type";
 
-export const resourceTypes: ResourceType[] = [
+export const categoryTypes: CategoryType[] = [
     {id: 1,
     name: 'Inicio'},
     {id: 2,

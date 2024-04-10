@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { ResourceType } from '../../types/categoryType.type';
+import { CategoryType } from '../../types/categoryType.type';
 import { ResourceTypeService } from '../../services/category-type.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ResourceTypeService } from '../../services/category-type.service';
   styleUrl: './category-navigation.component.scss'
 })
 export class CategoryNavigationComponent {
-  resourceTypes: ResourceType[] = [];
+  resourceTypes: CategoryType[] = [];
   
   constructor(private resourceTypeService: ResourceTypeService){
     this.resourceTypes = this.resourceTypeService.getAllCategoryTypes();
