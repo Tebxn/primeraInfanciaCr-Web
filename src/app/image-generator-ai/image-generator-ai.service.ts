@@ -9,10 +9,9 @@ import { Dalleresponse } from '../interfaces/dalleresponse';
 })
 export class ImageGeneratorAIService {
 
-  dallEKey:string = environment.dallEKey;
 
-  private url = 'https://api.openai.com/v1/images/generations';
-  private OPENAI_API_KEY = 'SECRET_KEY';
+  private url = environment.openAiApiUrl;
+  private OPENAI_API_KEY = environment.openAiKey;
 
   constructor(private http: HttpClient) { }
 
