@@ -16,9 +16,23 @@
 }
 @if(selectedOption === 'Generador IA'){
     <div class="row">
-        <app-image-generator-ai></app-image-generator-ai>
+        <div class="col-2"></div>
+        <div class="col-2 btnOption"><a href="#" class="btn btn-success" (click)="selectOptionAI('ImageGenerator'); $event.preventDefault()">Generar Imagen</a></div>
+        <div class="col-2 btnOption"><a href="#" class="btn btn-success" (click)="selectOptionAI('TextGenerator'); $event.preventDefault()">Generar Texto</a></div>
     </div>
+    @if(selectedOptionAI == 'ImageGenerator'){
+        <div class="row">
+            <app-image-generator-ai></app-image-generator-ai>
+        </div>
+    }
+    @if(selectedOptionAI == 'TextGenerator'){
+        <div class="row">
+            <app-text-generator-ai></app-text-generator-ai>
+        </div>
+    }
+    
 }
 <div class="row">
     <app-footer></app-footer>
 </div>
+

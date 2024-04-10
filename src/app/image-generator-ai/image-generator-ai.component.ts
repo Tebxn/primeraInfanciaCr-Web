@@ -15,6 +15,7 @@ export class ImageGeneratorAIComponent {
   prompt: string = '';
   imageUrl: string = '';
   noImageUrl: string = '../../assets/images/no-image.jpeg';
+  selectedOption: string = 'TextGenerator';
 
   constructor(private apiService: ImageGeneratorAIService) { }
 
@@ -27,5 +28,12 @@ export class ImageGeneratorAIComponent {
         console.error('Error al generar la imagen:', error);
       }
     );
+  }
+
+  changeOptionToText(){
+    this.selectedOption = 'TextGenerator';
+  }
+  changeOptionToImage(){
+    this.selectedOption = 'ImageGenerator';
   }
 }

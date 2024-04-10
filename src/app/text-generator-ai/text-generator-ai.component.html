@@ -1,18 +1,10 @@
 <div class="container text-center principal">
     <div class="row align-items-center">
-        @if(imageUrl){
             <div class="col-4"></div>
             <div class="col-4">
-                <img [src]="imageUrl" alt="Imagen generada">
+                <p>Aqui ira tu texto generado</p>
             </div>
             <div class="col-4"></div>
-        }@else {
-            <div class="col-4"></div>
-            <div class="col-4">
-                <img [src]="noImageUrl" alt="Imagen generada">
-            </div>
-            <div class="col-4"></div>
-        }
     </div>
     <div class="row">
         <div class="col-4"></div>
@@ -24,7 +16,7 @@
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
-            <button class="btn btn-primary" (click)="generateImage()">Generar con IA</button>
+            <button class="btn btn-primary" (click)="generateText()">Generar con IA</button>
         </div>
         <div class="col-4"></div>
     </div>

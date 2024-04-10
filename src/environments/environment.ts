@@ -1,5 +1,5 @@
 export const environment = {
-    openAiKey:  `api_secret`,
+    openAiKey:  `secret-key`,
     openAiApiUrl_DallE: `https://api.openai.com/v1/images/generations`,
     production: true
 };
