@@ -2,7 +2,12 @@
     <div class="row align-items-center">
             <div class="col-4"></div>
             <div class="col-4">
+              @if(generatedText){
+                <p>{{generatedText}}</p>
+              }@else {
                 <p>Aqui ira tu texto generado</p>
+              }
+
             </div>
             <div class="col-4"></div>
     </div>
