@@ -1,44 +1,58 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment.development';
-import { ApiResponseAiText } from '../interfaces/text.interface';
+import { TextGeneratorReponse } from '../interfaces/text.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OpenAIService {
-
-  private url = environment.openAiApiUrl_DallE;
-  private OPENAI_API_KEY = environment.openAiKey;
-
-  processedPrompt: string = '';
+  public responseText: TextGeneratorReponse[] = [];
+  private apiUrl = 'https://api.openai.com/v1/chat/completions';
+  private apiKey = 'YOUR_API_KEY';
 
   constructor(private http: HttpClient) { }
 
-  generateText(prompt: string): Observable<ApiResponseAiText> {
-    this.processedPrompt = `Genera una imagen de estilo animada con fin educativo apropiada para infantes de preescolar,
-     que logre captar la atencion de este publico meta acerca de: ${prompt}`;
+  chatCompletion(prompt: string): void {
+    prompt = 'Genera un texto destinado a publico infantil sobre la tematica de: ' + prompt;
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.OPENAI_API_KEY}`
-    });
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${this.apiKey}`);
 
     const body = {
-      model: 'gpt-3.5-turbo',
-      messages: [
+      "model": "gpt-3.5-turbo",
+      "messages": [
         {
-          role: 'system',
-          content: 'You are a helpful assistant.'
+          "role": "system",
+          "content": "You are a helpful assistant."
         },
         {
-          role: 'user',
-          content: 'Hello!'
+          "role": "user",
+          "content": prompt
         }
       ]
     };
 
-    return this.http.post<ApiResponseAiText>(this.url, body, { headers });
+    this.http.post<TextGeneratorReponse>(this.apiUrl, body, { headers })
+      .subscribe(resp => {
+        this.responseText = [{
+          id: resp.id,
+          object: resp.object,
+          created: resp.created,
+          model: resp.model,
+          system_fingerprint: resp.system_fingerprint,
+          choices: resp.choices,
+          usage: resp.usage
+        }];
+        console.log('Response:', this.responseText);
+        console.log('Response:', JSON.stringify(this.responseText, null, 2));
+
+      });
   }
 }
+
+
+
+

@@ -1,28 +1,30 @@
 <div class="container text-center principal">
-    <div class="row align-items-center">
-            <div class="col-4"></div>
-            <div class="col-4">
-              @if(generatedText){
-                <p>{{generatedText}}</p>
-              }@else {
-                <p>Aqui ira tu texto generado</p>
-              }
-
-            </div>
-            <div class="col-4"></div>
+  <div class="row align-items-center">
+    <div class="col-12">
+      <div *ngIf="generatedText && generatedText.length > 0">
+        @for(item of generatedText; track item.id){
+          <textarea>
+            {{item.choices[0].message.content}}
+          </textarea>
+        }
+      </div>
+      <div *ngIf="!generatedText || generatedText.length === 0">
+        Aquí se mostrará tu respuesta.
+      </div>
     </div>
-    <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
-            <input class="form-control" [(ngModel)]="prompt" placeholder="Ingresa tu prompt aquí">
-        </div>
-        <div class="col-4"></div>
+  </div>
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <input type="text" [(ngModel)]="prompt" #inputPrompt>
     </div>
-    <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
-            <button class="btn btn-primary" (click)="generateText()">Generar con IA</button>
-        </div>
-        <div class="col-4"></div>
+    <div class="col-4"></div>
+  </div>
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <button (click)="generateText()">Generate</button>
     </div>
+    <div class="col-4"></div>
+  </div>
 </div>
